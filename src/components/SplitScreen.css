@@ -1,0 +1,56 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+#left-pane {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #f0f0f0;
+    overflow: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#right-pane {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #ffffff;
+    overflow: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.splitter {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background-color: #000000;
+    cursor: ew-resize;
+}
+
+.row {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.search-input {
+    width: 100%;
+}
+
+.search-icon {
+    margin-top: 8px;
+}
