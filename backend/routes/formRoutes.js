@@ -1,3 +1,4 @@
+// formRoutes.js
 
 const express = require('express');
 const router = express.Router();
@@ -11,7 +12,8 @@ const upload = multer({ dest: 'uploads/' });
 router.post('/', upload.single('profileImg'), async (req, res) => {
     try {
         // Extract form data from the request body
-        const { name, email, hobbies, gender, mobile } = req.body;
+        const { name, email, gender, mobile } = req.body;
+        const hobbies = req.body.hobbies.split(','); // Change here
 
         // If a profile image was uploaded, get its path
         let profileImgPath = '';
@@ -22,18 +24,16 @@ router.post('/', upload.single('profileImg'), async (req, res) => {
         const formData = new FormDataModel({
             name,
             email,
-            hobbies: hobbies ? hobbies.split(',') : [], 
+            hobbies,
             gender,
             mobile,
             profileImg: profileImgPath // Assign the profile image path to the profileImg field
         });
 
-     
         await formData.save();
 
         res.status(201).json({ message: 'Form data saved successfully' });
     } catch (error) {
-        
         console.error('Error saving form data:', error);
         res.status(500).json({ error: 'Internal server error' });
     }

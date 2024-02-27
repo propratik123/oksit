@@ -1,4 +1,5 @@
 // SplitScreen.jsx
+
 import React, { useState } from 'react';
 import './SplitScreen.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -56,9 +57,7 @@ const SplitScreen = () => {
             formDataToSend.append('mobile', formData.mobile);
             formDataToSend.append('profileImg', formData.profileImg);
 
-            formData.hobbies.forEach(hobby => {
-                formDataToSend.append('hobbies', hobby);
-            });
+            formDataToSend.append('hobbies', formData.hobbies.join(',')); // Change here
 
             const response = await fetch('http://localhost:5000/api/formdata', {
                 method: 'POST',
