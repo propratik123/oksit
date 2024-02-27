@@ -7,7 +7,7 @@ const formRoutes = require('./routes/formRoutes');
 const app = express();
 
 // Enable CORS middleware
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors());
 
 // Middleware
 app.use(express.json());
