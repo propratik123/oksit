@@ -55,9 +55,9 @@ const SplitScreen = () => {
             formDataToSend.append('mobile', formData.mobile);
             formDataToSend.append('profileImg', formData.profileImg);
 
-            formDataToSend.append('hobbies', formData.hobbies.join(','));
+            formDataToSend.append('hobbies', formData.hobbies.join(',')); // Change here
 
-            const response = await fetch('https://oksit.onrender.com/api/formdata', {
+            const response = await fetch('/api/formdata', { // Change here
                 method: 'POST',
                 body: formDataToSend
             });
@@ -88,7 +88,7 @@ const SplitScreen = () => {
     const handleSearchSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`https://oksit.onrender.com/api/formdata?mobileNumber=${searchQuery}`);
+            const response = await fetch(`/api/formdata?mobileNumber=${searchQuery}`); // Change here
             if (response.ok) {
                 const data = await response.json();
                 setSearchResults(data);
@@ -99,6 +99,7 @@ const SplitScreen = () => {
             console.error('Error fetching search results:', error.message);
         }
     };
+
 
     return (
         <div>
