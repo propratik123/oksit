@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './SplitScreen.css';
+import './SplitScreen.css'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const SplitScreen = () => {
