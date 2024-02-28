@@ -1,5 +1,3 @@
-// SplitScreen.jsx
-
 import React, { useState } from 'react';
 import './SplitScreen.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -57,9 +55,9 @@ const SplitScreen = () => {
             formDataToSend.append('mobile', formData.mobile);
             formDataToSend.append('profileImg', formData.profileImg);
 
-            formDataToSend.append('hobbies', formData.hobbies.join(',')); // Change here
+            formDataToSend.append('hobbies', formData.hobbies.join(','));
 
-            const response = await fetch('http://localhost:5000/api/formdata', {
+            const response = await fetch('https://oksit.onrender.com/api/formdata', {
                 method: 'POST',
                 body: formDataToSend
             });
@@ -90,7 +88,7 @@ const SplitScreen = () => {
     const handleSearchSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`http://localhost:5000/api/formdata?mobileNumber=${searchQuery}`);
+            const response = await fetch(`https://oksit.onrender.com/api/formdata?mobileNumber=${searchQuery}`);
             if (response.ok) {
                 const data = await response.json();
                 setSearchResults(data);
